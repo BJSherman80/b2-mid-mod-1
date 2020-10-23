@@ -6,12 +6,9 @@ RSpec.describe 'Park show page', type: :feature do
     ride_1 = park.rides.create!(name: "T-rex Race", rating: 4)
     ride_2 = park.rides.create!(name: "Raptor Race", rating: 8)
     ride_3 = park.rides.create!(name: "Megladon Swim", rating: 10)
-    # park.rides << ride_1
-    # park.rides << ride_2
-    # park.rides << ride_3
 
     visit "/parks/#{park.id}"
-    save_and_open_page
+
     expect(page).to have_content(park.name)
     expect(page).to have_content(park.admission_price)
     expect(page).to have_content(ride_1.name)
