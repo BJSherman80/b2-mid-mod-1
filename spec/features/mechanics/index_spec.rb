@@ -1,6 +1,6 @@
 require 'rails_helper'
 RSpec.describe 'Mechanics index page', type: :feature do
-  it 'can header and mechanic name and experience' do
+  it 'can see  header and mechanics name and experience' do
     mechanic_1 = Mechanic.create!(name: "Hank", experience: 10)
     mechanic_2 = Mechanic.create!(name: "Shila", experience: 12)
 
