@@ -3,7 +3,7 @@ class Mechanic < ApplicationRecord
   has_many :rides, through: :repairs
 
   def sorted_rides
-    rides.order(:name)
+    rides.order(name: :asc)
   end
 
 end
