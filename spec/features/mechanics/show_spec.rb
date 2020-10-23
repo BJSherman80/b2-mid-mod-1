@@ -34,4 +34,21 @@ RSpec.describe 'Mechanic show page', type: :feature do
     click_button 'Submit'
     expect(page).to have_content(ride_3.name)
   end
+
+  it 'can flash message for a ride that doesnt exist ' do
+    park = Park.create!(name: "Jurassic Park", admission_price: 500)
+    ride_1 = park.rides.create!(name: "T-rex Race", rating: 4)
+    ride_2 = park.rides.create!(name: "Raptor Race", rating: 8)
+    ride_3 = park.rides.create!(name: "Megladon Swim", rating: 10)
+    mechanic_1 = Mechanic.create!(name: "Hank", experience: 10)
+
+    mechanic_1.rides << ride_1
+    mechanic_1.rides << ride_2
+
+    visit "/mechanics/#{mechanic_1.id}"
+    fill_in :ride_id, with: "67988"
+    click_button 'Submit'
+    expect(page).to have_content('Ride does not exist.')
+    save_and_open_page
+  end
 end
