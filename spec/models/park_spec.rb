@@ -11,7 +11,7 @@ RSpec.describe Park, type: :model do
     ride_2 = park.rides.create!(name: "Raptor Race", rating: 8)
     ride_3 = park.rides.create!(name: "Megladon Swim", rating: 10)
 
-    expect((park.average_thrill_rating).round(0)).to eq(0.7e1)
+    expect((park.average_thrill_rating).round(2)).to eq(7.33)
 
   end
  end

@@ -49,6 +49,5 @@ RSpec.describe 'Mechanic show page', type: :feature do
     fill_in :ride_id, with: "67988"
     click_button 'Submit'
     expect(page).to have_content('Ride does not exist.')
-    save_and_open_page
   end
 end
