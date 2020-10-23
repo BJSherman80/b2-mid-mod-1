@@ -16,6 +16,7 @@ RSpec.describe 'Mechanic show page', type: :feature do
     expect(page).to have_content(mechanic_1.experience)
     expect(page).to have_content(ride_1.name)
     expect(page).to have_content(ride_2.name)
+    expect(ride_2.name).to appear_before(ride_1.name)
    end
 
   it 'can add a ride to the mechanics list ' do
